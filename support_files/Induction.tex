@@ -1,0 +1,250 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{hyperref}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Empirical versus Mathematical Induction}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+
+\say{
+Will the sun rise on January 1 next year? There is no way to be absolutely sure.
+It is always possible that the world will end before then by divine decree or by
+some natural calamity. ... The most we can say is that it is an excellent bet
+that on the next New Year's day, the sun will rise as usual. Our jump from a
+finite set of past sunrises to an infinite future set, or at least to a future
+set with a large number of elements, is an empirical induction.
+
+Mathematicians have an analogous technique known as mathematical induction or
+complete induction that also supports a jump from a finite set of cases to a
+larger or an infinite number of cases. Unlike empirical induction, the
+mathematical technique is entirely deductive. A "jump proof", as it is sometimes
+called, is as certain as any proof can be in mathematics.
+
+To prove something by mathematical induction we must first have a series of
+statements (usually an infinite series but not necessarily so) that can be put
+into a one-to-one correspondence with the positive integers. Second, we must
+establish that the statements are related to one another by ... the "hereditary
+property". If any statement is true, its successor --- the "next" statement ---
+is true. Third, we must show that the first statement is true. It then follows
+with iron certainty that all the statements are true.
+
+Jump proofs have been likened to a row of bricks or dominoes that are standing
+on end and all topple over when you unbalance the first one. [It's like] a pile
+of envelopes, each containing a note that says: "Open the next envelope, read
+the order and carry it out." If you are committed to obeying the order in the
+first envelope, you must open all the envelopes and obey all the orders.}
+
+--- Martin Gardner
+
+\section{The Principle of Mathematical Induction}
+
+Verbose version:
+
+  IF a proposition involving the positive integer N can be proven to have the two properties:
+\begin{enumerate}[1)]
+     \item The proposition is true for N = 1, and
+
+     \item IF K is any value of N for which the proposition is true THEN the proposition is also true for the next value N = K + 1;\\
+  THEN the proposition is true
+    for all positive integral values of N.
+\end{enumerate}
+Succinct version: $[P(1) \land \forall k(P(k) \rightarrow P(k + 1))] \rightarrow \forall nP(n)$
+\section{Examples}
+\subsection{A Classic}
+
+Use mathematical induction to prove that the sum
+of the first $n$ odd positive integers is $n^2$.
+
+Let $P(n)$ be the proposition $\sum_{j=1}^n (2j - 1) = n^2$
+
+\textit{Basis Step:} $P(1)$ is true since $2 \cdot 1 - 1 = 1 = 1^2$
+
+\textit{Inductive Hopothesis (IHOP) step:} Assume $P(k)$ is true, that is
+
+$\sum_{j=1}^k (2j - 1) = k^2,\) so then \(\sum_{j=1}^{k}(2j - 1) =
+2 \cdot 1 - 1 + 2 \cdot 2 - 1 + \ldots + 2 \cdot k - 1$
+
+and to show $P(k) \rightarrow P(k + 1)$ (which completes the proof):
+\begin{align}
+\sum_{j=1}^{k + 1}(2j - 1)&=\sum_{j=1}^k(2j - 1) + 2(k + 1) - 1\\
+&= k^2 + 2(k + 1) - 1\\
+&= k^2 + 2k + 2 - 1\\
+&= k^2 + 2k + 1 = (k + 1)^2
+\end{align}
+QED
+
+\subsection{A "non-one" basis step}
+
+Let $P(n)$ be $2^n > n^2$. Prove $\forall n>4 P(n)$.
+
+\textit{Basis Step:} $P(5)$ is true since $2^5 = 32 > 25 = 5^2$
+
+\textit{IHOP:} Assume $P(k)$ is true, that is $2^k > k^2$.
+
+Then,
+\begin{align}
+ 2^{k+1} &= 2 \cdot 2^k\\
+         &> k^2 + k^2\\
+         &> k^2 + 4k\ \mbox{(since /k > 4/)}\\
+         &> k^2 + 2k + 1\\
+         &= (k + 1)^2
+ \end{align}
+QED
+
+\subsubsection{Self Assessment Question for Checking Understanding} 
+
+Which step above used $2^k > k^2$ (the inductive hypothesis)?
+
+\subsection{You Try It}
+Here is an englishy statement of a proof. Translate it to mathematics (following the pattern of 2.2).\\
+
+Let $P(n)$ be the statement that $n! < n^n$, where $n \in \mathbf Z^{+}, n > 1$.
+
+What is the statement $P(2)$?
+
+For $n = 2$ $P(2)$ is the statement $2! < 2^2$.
+
+Show that $P(2)$ is true, completing the basis step of the proof.
+
+Since $2! = 2$ and $2^2 = 4$, this is the true statement $2 < 4$.
+
+What is the inductive hypothesis? It is the statement $k! < k^k$.
+
+What do you need to prove in the inductive step?
+
+You need to prove that for each $k \ge 2$ that $P(k)$ implies
+$P(k + 1)$.  In other words, show that assuming the inductive
+hypothesis $k! < k^k$ you can prove that $(k + 1)! < (k + 1)^{k + 1}$.
+
+Complete the inductive step.
+
+$(k + 1)! = (k + 1)k! < (k + 1)k^k < (k + 1)(k + 1)^k = (k + 1)^{k + 1}$
+
+Having completed both the basis step and the inductive step, by the
+PMI, the statement is true for every $n \in \mathbf Z^{+}, n > 1$.
+
+QED
+
+\subsection{Try Another One}Here is another englishy statement of a proof. Translate it to mathematics.
+
+Find a formula for $\frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} +
+\cdots + \frac{1}{n(n + 1)}$ by examining the values of this
+expression for small values of $n$.
+
+By computing the first few sums and getting the answers $\frac{1}{2}$, $\frac{2}{3}$,
+and $\frac{3}{4}$, it's easy to guess that the sum is $n/(n + 1)$.
+
+Prove this formula works for all $n \in \mathbf Z^{+}$ using the PMI.
+
+\textit{BASE:} It is true for $n = 1$, since there is just one term, $\frac{1}{2}$.
+
+\textit{IHOP:} Suppose that $\frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \cdots +
+\frac{1}{k(k + 1)} = \frac{k}{k + 1}$
+
+\textit{GOAL:} You must now show that \[\left[
+  \frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \cdots + \frac{1}{k(k +
+    1)}\right] + \frac{1}{(k + 1)(k + 2)} = \frac{k + 1}{k + 2}\]
+
+Use the IHOP and do the algebra, reaching the desired expression:
+
+$\frac{k}{k + 1} + \frac{1}{(k + 1)(k + 2)} = \frac{k^2 + 2k + 1}{(k + 1)(k + 2)} = \frac{k + 1}{k + 2}$
+
+QED
+
+\subsection{YAE (Yet Another Example)}
+
+Let $P(n)$ be $2^n > n^4$. (Or, $n^4 < 2^n$.)
+
+Prove $\forall n>16 P(n)$.
+
+\textit{Basis step:} $P(17)$ is true since $2^{17} = 131072 > 83521 = 17^4$.
+
+\textit{IHOP:} Assume $P(j)$ is true.
+
+(Note the switch to using $j$ rather than $k$ --- the point being that it
+doesn't matter what variable name you use.)
+
+Then it follows that \begin{align}
+(j + 1)^4 &= j^4 + 4j^3 + 6j^2 + 4j + 1\\
+&< j^4 + 4j^3 + 6j^3 + 4j^3 + 2j^3\\
+&= j^4 + 16j^3\\
+&< j^4 + j^4\ (\mbox{since}\ 16 < j)\\
+&= 2j^4\\
+&< 2 \cdot 2^j\ \mbox{(by the inductive hypothesis)}\\
+&= 2^{j+1},\ \mbox{as desired}
+\end{align}
+QED
+
+At this point, hopefully you can generalize this to prove that $\exists k\ \forall p\
+\forall n>k\ (2^n > n^p).$ Make it so.
+
+
+
+\end{document}

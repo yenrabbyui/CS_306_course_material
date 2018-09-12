@@ -1,0 +1,278 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{hyperref}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Algorithmic Problem Solving}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+\section{Algorithmic Problem Solving Fundamentals}
+There are three components to using Algorithms to solve a problem you face. You must choose/create an algorithm, ensure the algorithm produces the desired output, and analyze the algorithm for feasibility. 
+\subsection{Picking an Existing Algorithm}
+
+  Questions to answer when considering appropriate, existing algorithms;
+\begin{itemize}
+	\item Which algorithm takes the least amount of time?
+  	\item Which one takes the least amount of memory?
+  	\item Which is the easiest to program?
+\end{itemize}
+  Always choose an algorithm that best suits the circumstances.
+\subsection{Creating Your Own Algorithm}
+The process of creating and evaluating your own algorithm expressed algorithmically is:
+\begin{enumerate}
+	\item Understand the Problem.
+	\item Decide on:
+	\begin{itemize}
+       		\item computational means,
+       		\item exact vs. approximate solving,
+       		\item data structure(s),
+       		\item algorithm design technique
+	\end{itemize}
+	\item Design an Algorithm
+	\item Check Correctness
+       		\begin{itemize}
+			\item If not correct go to step 2 or 3
+		\end{itemize}
+	\item Analyze the Algorithm
+       		\begin{itemize}
+			\item If not good enough go to step 2 or 3
+		\end{itemize}
+		
+	\item Code the Algorithm
+\end{enumerate}
+
+  
+\subsection{Algorithm Correctness}
+
+   Once an algorithm has been specified, you have to prove its correctness.
+
+   To accomplish this, you must prove that the algorithm yields the required result for
+   \textit{every} legitimate input in a finite amount of time. Tracing the algorithm's operation for a few specific inputs does not prove its correctness. 
+   
+   With some algorithms proving correctness is simple. For others it is complicated. As an example of a non-complicated proof take a look at the end of this document for two proofs of Euclid's gcd algorithm.
+
+   A common method for proving correctness is mathematical induction.
+   
+   \subsection{Algorithm Analysis}
+No perfect algorithm exists. To be able to choose between algorithms that achieve the same end you must balance these data points:
+\begin{itemize}
+\item Time efficiency --- how fast each algorithm runs.
+\item Space efficiency --- how much memory each algorithm needs.
+\item Simplicity
+\begin{itemize}
+  \item like Beauty, often in the eye of the beholder.
+  \item Which is simplest of the three $gcd$ algorithms?
+\end{itemize}
+\item Generality
+\begin{itemize} 
+  \item of the problem each algorithm solves
+  \item of the range of inputs each algorithm accepts
+\end{itemize}
+\end{itemize}
+\section{Common Types of Problems Amenable to Algorithmic Problem Sovling}
+
+\subsection{Sorting}
+\begin{itemize}
+	\item With all the courses I need/should take, which one should I take next?
+\end{itemize}
+\subsection{Searching}
+\begin{itemize}
+	\item Where did I leave my wallet???
+\end{itemize}
+\subsection{String Processing}
+\begin{itemize}
+	\item Auto-correcting spelling and grammar along with word suggestion are done with string processing algorithms.
+\end{itemize}
+\subsection{Graph Problems} This is the oldest area of application of algorithms since graphs can be used to model many kinds of everyday problems.
+\begin{itemize}
+	\item What is an efficient way to get from the STC to the Snow building? \{transportation and communications networks problems\}
+	\item In what order should I work on my homework to get done the soonest? \{project and production scheduling\}
+    	\item How do I get my character from point A to point B without dying? \{game problems\}
+	\item What is the maximum number of links required to reach a web server from a mobile device by the most direct route between them.\{maxima, minima network/routing problems\}
+\end{itemize}
+\subsubsection{Easy Graph Problems}
+\begin{itemize}
+	\item Shortest Path
+	\item Minimum Spanning Trees
+\end{itemize}
+\subsubsection{Hard Graph Problems}
+\begin{itemize}
+	\item Traveling Salesperson
+	\item Map-Coloring
+\end{itemize}
+\subsection{Problems that ask to find a combinatorial object} These are the most intransigent problems in computing. The size of the solution grows extremely fast when the initial data set size only grows moderately. Also, there are no known algorithms for most of these types of problems that can be to compute a solution in a reasonable amount of time (before the sun dies). Worst of all, most computer scientists believe they are unknown because they  can not exist.
+\begin{itemize}
+	\item permutation
+    	\item combination (subset)
+    	\item power set (set of all subsets)
+\end{itemize}
+\subsection{Geometric Problems}
+\begin{itemize}
+	\item Which major city is closest to Rexburg? \{closest pair of points out of a set of points problem\}
+	\item How can I draw a 3-D map of Idaho? \{polygon finding problem\}
+\end{itemize}
+
+\subsection{Numerical Problems}
+
+These problems involve mathematical objects of a \textit{continuous} nature such as :
+\begin{itemize}
+     	\item If a train leaves Chicago at 3:00 PM heading east\ldots \{solving equations\}
+     	\item Finding the optimal path of a product through a factory ignoring physical constraints. \{solving systems of equations\}
+     	\item If the economy grows at a rate expressed by what appears to be a non-describable sinusoidal function $f(t)$ for the next 10 years, how much bigger will it be then compared to today? \{computing definite integrals\}
+     	\item How efficient is my code? \{evaluating functions\}
+\end{itemize}
+
+
+
+
+
+
+
+
+ \section{How can the correctness of Euclid's GCD algorithm be proven?}
+  \textit{GCD Definition}. Given two positive integers $m$ and $n$,
+  find their greatest common divisor, i.e., the largest positive integer which
+  evenly divides both $m$ and $n$.
+   
+\subsection{The Na\"ive Way}
+
+The central claim of Euclid's algorithm is $gcd(m, n) = gcd(n, m\pmod n)$.
+
+  Recall the definition of \textit{division}: an integer $a$ (not zero) \textit{divides} an
+  integer $b$ (or equivalently, $b$ is \textit{divisible} by $a$, or $a$ is a \textit{divisor}
+  of $b$. All signified by $a|b$) if there is an integer $x$ such that $b = ax.$
+
+  Here's a Lemma (a \textit{helper} to the main proof):\\
+  
+  For any pair of positive integers $m$ and $n$, if $d$ divides both $m$ and $n$  then $d$ also divides both $n$ and $r$, where $r = m\pmod n.$
+
+\textbf{Proof of Lemma}
+
+  Another way to write $r$ is $m - qn$ where $q$ is the \textit{quotient} ($q
+  = \lfloor m / n \rfloor$). Now ask:
+
+  1. Does $d$ divide $m$? (Yes, it's assumed in the premise of the lemma.)
+  2. Does $d$ divide $qn$? (Must prove that since $d$ divides $n$ (also assumed)
+     that $d$ divides a multiple of $n$.)
+  3. Does $d$ divide $m - qn$? (If it divides both /m/ and /qn/, that is?)
+
+  To prove the Lemma you must prove the answer to 2 and 3 is yes.
+
+  Show that $d$ divides $qn$ given $d$ divides $n$ as follows:
+\begin{align}
+  n &= dx  \text{(Definition of division)}\\      
+  qn  &=  q(dx) \text{(Multiply both sides by /q/)}\\
+  qn &= d(qx) \text{(Associative law of multiplication)}
+  \end{align}
+
+  Show that if $d$ divides $u$, and $d$ divides $v$, then $d$ also divides their
+  difference $u - v$ as follows:
+\begin{align}
+  u &= ds \text{(Definition of division)}\\
+  v &= dt \text{(Definition of division)}\\
+  u - v &= ds - dt \text{(Equals subtracted from equals are equal)}\\
+  u - v &= d(s - t)/ \text{(Distributive law of multiplication)}\\
+\end{align}
+  Therefore $d$ divides $u - v$ by definition of division (since $s - t$ is an integer).
+
+  Statements 2 and 3 have both been proved, therefore the Lemma is proved.
+
+\textbf{Proof of Euclid's GCD}
+  Since $d$ was arbitrarily chosen (it could be any divisor), the above
+  shows that $m$, $n$ and $n$, $m\pmod n$ have the same (non-empty)
+  set of common divisors, which necessarily includes the largest
+  element in the set, which is the GCD.
+
+  QED
+  
+  \subsection{The Non-na\"ive Way} 
+
+  E1. [Find remainder.] Divide $m$ by $n$ and let $r$ be the remainder. (We will
+  have $0 \le r < n$.)
+
+  E2. [Is it zero?] If $r = 0$, the algorithm terminates; $n$ is the answer.
+
+  E3. [Interchange] Set $m\leftarrow n, n \leftarrow r$, and go back to
+  step E1.
+
+  After step E1, we have $m = qn + r$ for some integer $q$. If $r = 0$, then
+  $m$ is a multiple of $n$, and clearly in such a case $n$ is the greatest
+  common divisor of $m$ and $n$. If $r \ne 0$, note that any number which
+  divides both $m$ and $n$ must divide $m - qn = r$, and any number which
+  divides both $n$ and $r$ must divide $qn + r = m$; so the set of divisors
+  of $m, n$ is the same as the set of divisors of $n, r$ and, in particular, the
+  \textit{greatest} common divisor of $m, n$ is the same as the greatest common divisor
+  of $n, r$. Therefore step E3 does not change the answer to the original
+  problem.
+
+  QED
+ 
+
+
+\end{document}

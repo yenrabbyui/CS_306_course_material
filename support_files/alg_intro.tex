@@ -1,0 +1,246 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{hyperref}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{Erlang}{
+  keywords={main, gcd },
+  ndkeywords={rem, export, module},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{About Algorithms}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+\section{Important Quotations}
+\subsection{ What is an algorithm?}
+
+
+  \say{An algorithm is a sequence of unambiguous instructions for solving a
+  problem, i.e., for obtaining a required output from any legitimate
+  input in a finite amount of time.}
+  
+  Or, to be precise, an algorithm is a \textbf{finite} sequence of
+  unambiguous instructions, etc.
+
+
+  --- Anany Levitin, page 3.
+  \subsection{Algorithmic Thinking}
+  \say{Computer Science and Engineering is a field that attracts a
+  different kind of thinker. I believe that one who is a natural
+  computer scientist thinks algorithmically. Such people are
+  especially good at dealing with situations where different rules
+  apply in different cases; they are individuals who can rapidly
+  change levels of abstraction, simultaneously seeing things in-the-large and in-the-small.} --- Donald Knuth, as quoted in
+  J. Hartmanis \textit{On computational complexity and the nature of computer
+  science} published in \textit{Communications of the ACM 37}, 10
+  (1994), 39.
+
+  
+  \subsection{More than Answers to Interview Questions}
+
+  As one of the giants in the history of computer science put it:
+
+
+ \say{ A person well-trained in computer science knows how to deal with
+  algorithms: how to construct them, manipulate them, understand them,
+  analyze them. This knowledge is preparation for much more than
+  writing good computer programs; it is a general-purpose mental tool
+  that will be a definite aid to the understanding of other subjects,
+  whether they be chemistry, linguistic, or music, etc.  The reason
+  for this may be understood in the following way:
+
+  It has often been said that a person does not really understand
+  something until after teaching it to someone else. Actually, a
+  person does not \textbf{really} understand something until after teaching
+  it to a \textbf{computer}, i.e., expressing it as an algorithm.}
+
+  ---Donald Knuth, \textit{Computer Science and its relation to mathematics},
+  The American Mathematical Monthly, 81(4), 1974
+
+
+\subsection{ Why Study Algorithms?}
+
+\say{Two ideas lie gleaming on the jeweler's velvet. The first is the calculus, the second, the algorithm.  The calculus and the rich body of mathematical analysis to which it gave rise made modern science possible; but it has been the algorithm that has made possible the modern world.}
+
+  --- David Berlinski, \textit{The Advent of the Algorithm}, 2000
+  
+  \subsection{Compelling Reasons and Limitations}
+
+
+  \say{There are compelling reasons to study algorithms. To put it bluntly,
+  computer programs would not exist without algorithms. And with
+  computer applications becoming indispensable in almost all aspects
+  of our professional and personal lives, studying algorithms becomes
+  a necessity for more and more people.
+
+  Another reason for studying algorithms is their usefulness in
+  developing analytical skills. After all, algorithms can be seen as
+  special kinds of solutions to problems --- not answers but precisely
+  defined procedures for getting answers. Consequently, specific
+  algorithm design techniques can be interpreted as problem-solving
+  strategies that can be useful regardless of whether a computer is
+  involved.
+
+  Of course, the precision inherently imposed by algorithmic thinking
+  limits the kinds of problems that can be solved with an algorithm.
+
+  You will not find, for example, an algorithm for living a happy life
+  or becoming rich and famous.  On the other hand, this required
+  precision has an important\ldots advantage.}
+
+  --- Anany Levitin, \textit{Introduction to the Design and Analysis of
+  Algorithms}, 2012
+  \section{Basic, Commonly Known Algorithms}
+  \subsection{ Algorithms for Computing Euclid's GCD}
+
+  The Greatest Common Divisor (GCD) of two nonnegative, not-both-zero
+  integers $m$ and $n$, denoted $gcd(m, n)$, is defined as the largest
+  integer that divides both $m$ and $n$ evenly, i.e., with a remainder
+  of zero.
+  
+  There are many algorithms that produce the gcd of two numbers. Not all are of the same quality. For the approaches shown below, $\exists m,n \in\mathbb{N}$.
+
+\subsubsection{Approach 1}
+
+   Apply repeatedly the equality
+ 
+   $gcd(m, n) = gcd(n, m \pmod n)$ until $m \pmod n$ is equal to $0$.
+
+   Since $gcd(m, 0) = m$, then $m$ is the greatest common divisor of
+   $m$ and $n$.
+
+   Example: $gcd(60, 24) = gcd(24, 12) = gcd(12, 0) = 12$.
+   
+Here is a mathematical representation of this algorithm
+   
+   \[ gcd(m,n) = \begin{cases}
+    m\qquad\quad\quad\quad m\pmod n = 0\\
+    gcd(m,n)\qquad otherwise 
+\end{cases} 
+\]
+   
+Here is this algorithm in Erlang.
+\lstset{language=Erlang}
+\lstinputlisting{gcd.erl}
+
+   Now apply this algorithm to finding $gcd(31415, 14142)$.
+
+   How do we know Euclid's algorithm will stop?
+
+   Is each step non-ambiguous?
+
+   Was the range of inputs specified?
+   
+
+
+\subsubsection{Approach 2}
+
+\begin{enumerate}
+   \item Assign the value of $min(m, n)$ to $t$
+   \item Divide $m$ by $t$.  If the remainder of this division is $0$, go
+      to step 3; otherwise go to step 4.
+   \item Divide $n$ by $t$.  If the remainder of this division is $0$,
+      return the value of $t$ as the answer and stop; otherwise
+      proceed to step 4
+   \item Decrease the value of $t$ by $1$. Go to Step 2.
+\end{enumerate}
+   
+   Apply this algorithm to finding $gcd(31415, 14142)$.
+
+   What is wrong with this algorithm?
+
+\subsubsection{Approach 3}
+
+   1. Find the prime factors of $m$.
+   2. Find the prime factors of $n$.
+   3. Identify all common factors in the two prime expansions found in
+      steps 1 and 2.
+   4. Compute the product of all the common factors and return it as
+      the greatest common divisor of $m$ and $n$.
+
+   Example: Calculate $gcd(60, 24)$
+   \begin{align}
+   60 &= 2 \cdot 2 \cdot 3 \cdot 5\\
+   24 &= 2 \cdot 2 \cdot 2 \cdot 3\\
+   gcd(60, 24) &= 2 \cdot 2 \cdot 3 = 12
+   \end{align}
+
+   Apply this algorithm to finding $gcd(31415, 14142)$.
+
+   Problems with this algorithm?
+
+
+
+
+\end{document}
