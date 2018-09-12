@@ -1,0 +1,156 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{hyperref}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Week 01}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+\section{Readings}
+\begin{itemize}
+	\item Levitin Chapter 1
+\end{itemize}
+\section{Preparation for Assignment}
+If, and \textit{only if} you can truthfully assert the truthfulness of each statement below are you ready to start the assignment.
+\subsection {Reading Comprehension Self-Check}
+\begin{itemize}
+	\item I know what criterion most classic algorithms satisfy.
+	\item I know what systematically interrupts the narrative flow of the textbook.
+	\item I know to be on the lookout for exercises versus problems, because the chapter exercises in the textbook are not marked with a difficulty level.
+	\item I know where the textbook provides hints to all the exercises.
+	\item I know the properties of logarithms.
+	\item I know the important summation formulas.
+\end{itemize}
+\subsection{Memory Self-Check}
+\subsubsection{Determine Correct Order}
+
+The steps for the best known algorithm for creating algorithms are listed out of order here. What order should they be in?
+\begin{enumerate}
+	\item Decide on: computational means, exact vs approximate solving, data structure(s), algorithm
+ design technique.
+ 	\item Design an algorithm.
+	\item Understand the problem.
+	\item Prove correctness of the algorithm.
+	\item Analyze the algorithm.
+	\item Code the algorithm.
+\end{enumerate}
+\subsubsection{Write a short answer}
+
+Levitin states that one of these problem types is the most difficult to solve. Which is it and why is so difficult to solve?
+\begin{enumerate}
+	\item Sorting
+	\item Searching
+	\item String Processing
+	\item Graph problems
+	\item Combinatorial problems
+	\item Geometric problems
+	\item Numerical problems
+\end{enumerate}
+\section{Week 01 Exercises}
+\subsection{Exercise 4 on Page 7}
+\subsection{Exercise 8 on page 8}
+\subsection{Exercise 4 on Page 17} Write code instead of psuedocode.
+\subsection{Exercise 2 on page 23}
+\subsection{Exercise 2 on page 37}
+\subsection{Exercise 9 on page 38}
+ 
+ 
+\section{Week 01 Problems}
+\subsection{Exercise 12 on page 8} 
+
+\subsubsection{How might this elisp code help in answering the questions posed in exercise 12?}$ $ 
+\begin{lstlisting}[language=lisp, frame=single] 
+(require 'cl) ;; for loop
+
+  (defvar doors (make-bool-vector 101 nil))
+
+  (defun flip-doors (n)
+    (loop for i from 0 below (length doors)
+          when (zerop (mod i n))
+          do (aset doors i (if (aref doors i) nil t))))
+
+  (defun flip-100 ()
+    (loop for i from 1 to 100 do (flip-doors i))
+    (substring (mapconcat (lambda (x) (if x "1" "0")) doors "") 1))
+\end{lstlisting}
+\pagebreak
+\subsubsection{Same algorithm in Swift.}$ $
+
+\begin{lstlisting}[language=Swift, frame=single]
+var doors = Array(repeating: 0, count: 101)
+func flip_doors(n:Int){
+    for i in 0..<doors.count{
+        if i % n == 0 {
+            doors[i] = abs(doors[i]-1)
+        }
+    }
+}
+for i in 1..<doors.count {
+    flip_doors(n: i)
+}
+print(doors.compactMap{String($0)}.joined())
+\end{lstlisting}
+
+\subsection{Exercise 9 on page 25} 
+\subsection{Create Three Different Algorithms to Solve this Problem}
+Given two positive numbers A and B, where A is greater than B, find a way to \textit{break up} A into B unequal pieces.\\\\For example, if A = 34 and B = 4, then four unequal pieces of A are 6, 7, 9 and 12. These are unequal because there are no duplicate numbers. They break up (or sum up to) 34 because 6 + 7 + 9 + 12 = 34. The numbers representing the pieces (e.g., 6, 7, 9 and 12) must be positive integers (1, 2, 3, etc.), which excludes zero. Note that some pairs of numbers don't work, e.g., 5 and 3, so be sure to error-check that case.
+
+\subsection{Compare/Contrast Your Three Algorithms}
+In a similar manner to how Levitin compared and contrasted three different GCD algorithms, evaluate your three algorithms using three different criteria.
+\end{document}

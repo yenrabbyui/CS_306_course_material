@@ -1,0 +1,218 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{hyperref}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Week 02}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+\section{Preparation for Assignment}
+If, and \textit{only if} you can truthfully assert the truthfulness of each statement below are you ready to start the assignment.
+\subsection {Reading Comprehension Self-Check}
+\begin{itemize}
+	\item I know that an algorithm's time efficiency is principally measured as a
+    function of its input size by counting the number of times its basic
+    operation is executed.
+	\item  I understand why it is \textbf{false} to say that a \textbf{basic operation} of an
+    algorithm is the operation that contributes \textbf{least} toward the algorithm's
+    running time.
+	\item I understand that the established framework for analyzing an algorithm's
+    time efficiency is primarily grounded in the order of growth of the
+    algorithm's running time as its input size goes to infinity.
+	\item I have pondered the idea that the main tools for analyzing the time
+    efficiency of a non-recursive algorithm are to set up a sum expressing the
+    number of executions of its basic operations and then to ascertain the sum's
+    order of growth.
+	 \item I understand that there are several algorithms for computing the
+    Fibonacci numbers with drastically different efficiencies.
+  \item I will ponder the idea that the main tools for analyzing the time
+    efficiency of a recursive algorithm are to set up a recurrence relation
+    expressing the number of executions of its basic operations and then to
+    ascertain the solution's order of growth.
+  \item I know that \textit{empirical analysis} is applicable to any algorithm.
+  \item I know why it is \textit{false} to say that \textit{Algorithm Visualization}, or the
+    use of images to convey useful information about algorithms, has three
+    principal variations.
+  \item I discovered a web site devoted to algorithm visualization/animation.
+
+\end{itemize}
+\subsection{Memory Self-Check}
+
+\subsubsection{Statements Regarding Algorithms}
+Rank each quote in the About Algorithms reading. Rank them by your preference for them. Explain why your top and bottom ranked quotes were ranked as first and last.
+\subsubsection{Pondering Brings Depth}
+Ponder on the methodology you used rank the quotes. Convert the methodology into an algorithm. What is the $\mathcal{O}$ order of growth for your algorithm?
+
+\subsubsection{Fill in the Blank}
+
+\[ \lim_{n \rightarrow \infty} \frac{t(n)}{g(n)} = \begin{cases}
+    0\quad \text{the order of growth of t(n) \underline{\hspace{3cm}} the order of growth of g(n)}\\
+    c>0\quad\text{the order of growth of t(n) \underline{\hspace{3cm}} the order of growth of g(n)}\\
+    \infty \quad  \text{the order of growth of t(n) \underline{\hspace{3cm}} the order of growth of g(n)}
+\end{cases} 
+\]
+
+\subsubsection{Apply Limits to Specific Function Pairs}
+Calculate $\lim_{n \rightarrow \infty} \frac{t(n)}{g(n)}$ for each pair of functions.  
+
+\[\begin{array}{lcl}
+     t(n) & g(n) & \lim_{n \rightarrow \infty} \frac{t(n)}{g(n)}\\ \hline
+     10n   & 2n^2 \\
+     n(n+1)/2  & n^2 \\
+     \log_{b}n  & \log_{c}n 
+     \end{array}\]
+
+Hint: L'H\^{o}pital's rule says:
+
+   \[\lim_{n \rightarrow \infty} \frac{t(n)}{g(n)} = \lim_{n \rightarrow \infty} \frac{t^{\prime}(n)}{g^{\prime}(n)}\]
+
+\section{Week 2 Exercises}
+\subsection{ Exercise 1 on page 50} $ $\\ 
+
+Here is an example of a good answer for algorithm a:
+  
+  \begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ \textbf{Algorithm} & \textbf{i} & \textbf{ii} & \textbf{iii} \\ 
+ \hline
+ a & n & addition of two numbers & no \\ 
+ \hline
+ b & & & \\ 
+ \hline
+ c & & & \\ 
+ \hline
+ d & & & \\
+ \hline
+ e & & & \\  
+ \hline
+\end{tabular}
+\end{center}
+
+\subsection{Exercise 8 on page 51} $ $\\ 
+
+  Here is an example of a good answer for function a:
+
+ \[\log_2 n\text{. Value change:} \frac{\log_2 4n}{\log_2 n} = \log_2 4n - \log_2 n = (\log_2 4 + \log_2 n) - \log_2 n = 2\]
+
+
+  
+\subsection{Exercise 3 on page 59} $ $\\ 
+
+  Here is an example of a good answer for part a:
+
+ $(n^2 + 1)^{10}.\) To prove this is in \(\Theta(n^{20})$:
+\[ \lim_{n \rightarrow \infty} \frac{(n^2 + 1)^{10}}{n^{20}} =
+   \lim_{n \rightarrow \infty} \frac{(n^2 + 1)^{10}}{(n^2)^{10}} =
+   \lim_{n \rightarrow \infty} \left( \frac{n^2 + 1}{n^2} \right)^{10} =
+   \lim_{n \rightarrow \infty} \left( 1 + \frac{1}{n^2} \right)^{10} = 1.
+\]
+ Or, informally: $(n^2 + 1)^{10} \approx (n^2)^{10} = n^{20} \in \Theta(n^{20})$
+
+
+\subsection{Exercise 1 on page 67} $ $\\ 
+
+  Here are two examples of good answers for summation a:
+
+  \[1 + 3 + 5 + 7 + \ldots + 999 = \sum_{i = 1}^{500} (2i - 1) = \sum_{i = 1}^{500} 2i - \sum_{i = 1}^{500} 1
+= 2 \frac{500 * 501}{2} - 500 = 250,000.\]
+
+Or, by using the formula for the sum of the arithmetic series with
+  $a_1 = 1, a_n = 999, n = 500$, 
+  \[\frac{(a_1 + a_n)n}{2} = \frac{(1+999)500}{2} = 250,000.\]
+
+\subsection{Exercise 2 on page 67} $ $\\ 
+
+  Here is an example of a good answer for part a:
+
+\[ \sum_{i = 0}^{n - 1} (i^2 + 1)^2 = \sum_{i = 0}^{n - 1}(i^4 + 2i^2 + 1) = \sum_{i = 0}^{n - 1} i^4 + 2 \sum_{i = 0}^{n - 1} i^2 + \sum_{i = 0}^{n - 1} 1 \in \Theta(n^5) + \Theta(n^3) + \Theta(n) = \Theta(n^5)
+\]
+\[(\mbox{or just} \sum_{i = 0}^{n - 1} (i^2 + i)^2 \approx \sum_{i = 0}^{n - 1} i^4 \in \Theta(n^5)).
+\]
+
+
+\subsection{Exercise 3 on page 76}
+
+   
+\section{Week 2 Problems}
+
+\subsection{Exercise 12 on page 61}
+
+\subsection{Analysis Using $\mathcal{O}(f(n))$}
+   If it wasn't already part of your comparison/contrast of the three algorithms
+  you created for the "Breaking Up" problem of last week's assignment, do a
+  $\mathcal{O}(f(n))$ analysis of each algorithm here.
+
+\subsection{Exercise 6 on page 83}
+
+
+\subsection{Exercise 9 on page 84} $ $\\ 
+
+   \textit{Hint: Use mathematical induction.}
+\end{document}

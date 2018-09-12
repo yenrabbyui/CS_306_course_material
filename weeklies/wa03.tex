@@ -1,0 +1,126 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Week 03}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+
+\section{Preparation for Assignment}
+If, and \textit{only if} you can truthfully assert the truthfulness of each statement below are you ready to start the assignment.
+\subsection {Reading Comprehension Self-Check}
+\begin{itemize}
+  \item I know that \textit{brute force} is a straightforward approach to solving a problem, usually directly based on the problem statement and definitions of the concepts involved.
+  \item I understand that a first application of the brute-force approach often
+    results in an algorithm that can be improved with a modest amount of effort.
+  \item I know \textit{why} it is \textbf{false} to say that a strength of the brute-force
+    approach is subpar algorithmic efficiency.
+  \item I understand that \textit{exhaustive search} is a brute-force approach to combinatorial problems that suggests generating each and every combinatorial object of the problem, selecting those of them that satisfy all the constraints, and then finding a desired object.
+  \item I know why it is \textbf{false} to say that exhaustive search is practical for all but very small instances of problems it can be applied to.
+  \item I have reviewed Appendix A specifically focusing on understanding the formulas and rules for summations.
+  \item I have studied and pondered these common algorithms and understand why they have the time efficiencies they do:
+  \begin{itemize}
+    \item Finding the maximum element in an array.
+    \item Determining the uniqueness of all elements of an array.
+     \item Multiplying two $n$-by-$n$ matrices.
+     \item Converting a base 10 number to binary.
+  \end{itemize}
+\end{itemize}
+\subsection{Memory Self-Check}
+
+\subsubsection{Algorithm Efficiency Calculation}
+
+Create brute force algorithms for each of these three situations:
+\begin{enumerate}
+     \item Computing $a^n$, where $a$ is positive and $n$ is a nonnegative integer.
+     \item Computing $n!$.
+     \item Sequential search.
+\end{enumerate}.
+Determine $\mathcal{O}$, $\Omega$, $\Theta$, input size, and time efficiency for each algorithm. 
+
+
+
+\section{Week 02 Exercises}
+\subsection{ Exercise 1 on page 102} 
+\subsection{Exercise 8 on page 103} 
+\subsection{Exercise 6 on page 114} 
+\subsection{Exercise 4 on page 128} 
+\subsection{Exercise 8 on page 129}
+\subsection{Find the Door}
+You are facing a wall that stretches infinitely in both directions. There is a door in the wall, but you know neither how far away nor in which direction. You can see the door only when you are right next to it. Design and write code for an algorithm that enables you to reach the door by walking at most $\mathcal{O}(n)$  steps where $n$ is the (unknown to you) number of steps between your initial position and the door. (Hint: walk alternately right and left going each time exponentially farther from your initial position.)
+
+
+
+\section{Week 02 Problems}
+\subsection{Exercise 14 on page 103} 
+\subsection{Exercise 5 on page 129} Make sure you do a rigorous mathematical proof.
+\subsection{Exercise 6 on page 121} Write code for this algorithm.
+
+
+\end{document}
