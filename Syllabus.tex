@@ -1,0 +1,340 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{amssymb}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{makecell}
+\usepackage{pifont}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+\title{CS 306 Syllabus and Portfolio\\Fall 2018}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+This course introduces formal techniques to support the design and
+  analysis of algorithms, focusing on both the underlying mathematical
+  theory and practical considerations of efficiency. Topics include
+  asymptotic complexity bounds, techniques of analysis, and
+  algorithmic strategies.
+
+In other words, it's a blast!!
+
+\section{Objectives}
+\begin{itemize}
+\item Become conversant with the topics and issues surrounding
+    algorithms and complexity. These include (but are not limited to):
+    \begin{itemize}
+          \item Basic algorithms analysis: Asymptotic analysis of upper and
+              average complexity bounds;
+          \item Best, average, and worst case behaviors;
+          \item $\mathcal{O}$ (Big-Oh), $o$ (Little-OH), $\Omega$ (Big-Omega), and
+              $\Theta$ (Big-Theta) notation;
+          \item Standard complexity classes;
+          \item Empirical measurements of performance; time and space tradeoffs
+              in algorithms;
+          \item Using recurrence relations to analyze recursive algorithms;
+          \item Fundamental algorithmic strategies: brute-force; greedy; divide
+              and conquer; decrease and conquer; backtracking;
+          \item Graph and tree algorithms: \begin{itemize}
+          	\item depth-and-breadth-first traversals;
+              	\item shortest-path (Dijkstra's and Floyd's algorithms);
+		\item minimum spanning tree (Prim's and Kruskal's algorithms);
+		\item topological sort.
+	\end{itemize}
+      \end{itemize}
+\end{itemize}
+\begin{itemize}
+\item Learn the techniques (i.e., acquire the "tools").
+	\begin{itemize}
+          \item Analyze and compare algorithms using $\mathcal{O}$ (Big-Oh), $\Omega$ (Big-Omega), and
+              $\Theta$ (Big-Theta).
+          \item Describe and implement in a high-level language (e.g., lisp)
+              some or all of the following algorithmic techniques: Brute
+              Force, Divide/Decrease/Transform-and-Conquer, Greedy, Dynamic
+              Programming, Iterative Improvement and Backtracking.
+      	\end{itemize}
+\end{itemize}
+\section{Prerequisites}
+
+  You must have successfully completed the following courses:
+\begin{itemize}
+    \item CS 235 Data Structures
+    \item CS 237 Discrete Mathematics I
+\end{itemize}
+  You must have \textit{some} working knowledge of:
+\begin{itemize}
+     \item Procedural, Object-Oriented, and Functional Programming
+     \item Basic data structures (sets, lists, maps, trees, graphs, etc.)
+     \item Summation notation ($\Sigma$)
+     \item Recurrence relations
+     \item Limits
+     \item Logarithms
+     \item Matrices
+     \item Proofs
+\end{itemize}
+
+\section{Requirements}
+You are required to obtain
+\subsection{Text} 
+	\textbf{Introduction to the Design and Analysis of Algorithms}.\textit{Anany Levitin},Third Edition, 2012, Pearson. (ISBN: 9780132316811)
+\subsection{Documents} As provided by the instructor.
+\subsection{Software} A text editor of your choice that can produce pdf files from \LaTeX.
+\section{Behavioral Requirements}
+
+You are required to\ldots
+\begin{itemize}
+\item attend class, as assessments will happen in class each day that are not reproducible outside of class.
+\item read assigned portions of the course materials \textit{before} the class each Tuesday.
+\item complete all team and personal assessments to deepen your understanding of selected topics.
+\end{itemize}
+
+\section{Course Periodicity}
+This course has a weekly period, i.e. you can count on knowing ahead of time what you will be doing each day of each week.
+Each class period consists of three 30 minute sections. On Tuesdays these sections are:
+\begin{enumerate}
+	\item \textit{\textbf{Presentation}} \\A time where I will add depth information to the preparation material you've read \textbf{before class}. 
+	\item \textit{\textbf{Class Directed Learning}}\\You will participate in a class-wide activity that reinforces what you've read and what I've shown you.
+	\item \textit{\textbf{Create and Explain Solutions to Exercises}}\\During this time period, as a team of 2 or 3 you will create a solution to an exercise. On completion of your exercise you, as an individual, will explain your solution to someone not on your team until they understand your solution. Further information on this will be given in class.
+\end{enumerate}
+On Thursdays the three sections are:
+\begin{enumerate}
+	\item \textit{\textbf{Answer Questions}}\\ I will answer questions that have been submitted to the slack channel.
+	\item \textit{\textbf{Class Directed Learning}}\\You will participate in a class-wide activity that reinforces what you've read and what I've shown you.
+	\item \textit{\textbf{Work Problems}}\\This is in-class time for individual work on the problem set for the week. Successful students will have started working on the problem set \textbf{before} this half-hour.
+\end{enumerate}
+
+\subsection{Questions} The questions answered on Thursday are generalized from those you submit via the slack channel on Tuesday Evenings. You must submit any and all unanswered questions on Tuesday evening. Not submitting questions leads to a reduced learning experience. You will have plenty of questions. Submit them! Choose knowledge not ignorance.
+\subsection{Exercises} Exercises are smaller experiences that are designed to float uncertainties and questions you have to the surface of your mind. They are designed to be smaller so you can find out what you don't know and then take the steps necessary to know.
+\subsection{Problems} Problems are weightier experiences that invite you to explore topics in algorithms and complexity, as well as increase your algorithmic problem solving prowess. All involve writing mathematically.
+
+\section{Assessment} Quatri-weekly, every four weeks, you will meet with me in my office. The purpose of this meeting is for you to present your portfolio of work to me, make a grade-to-date claim, and provide evidence regarding why that grade is correct. Your portfolio \textbf{MUST} follow the example portfolio's format and be complete and internally consistent. You are required to produce the portfolio using \LaTeX, but can use any editor of your choice (Yes, spacemacs would be a good choice. No$\ldots$Word, Pages, and other non-text editors would not be good choices).
+
+The portfolio you bring to me for our meeting must be a hard-copy of the pdf generated from your \LaTeX{} file.
+\subsection{Late Work} Late work is accepted \textit{only if} the reason is extraordinary, and acceptance is reached through private and prolonged negotiation. Also, you must come talk to me in person in my office --- NOT by email, nor any other means of communication.
+\subsection{Grades} In each of our three personal meetings, you will present your portfolio and a letter based grade-to-date claim. Afterwards I will give you my thoughts on the strength of your claim. The last claim that you make, taking into account any feedback from me, will be your final grade for the course. All of your claims must must be evidence based. That means you must bring the evidence with you, in your portfolio, that supports your claim. 
+\subsection{Letter-Based-Grades}You are required to use the definition of the grades from the University Catalog:
+\begin{enumerate}[label=\textbf{\Alph*}]
+	\item represents outstanding understanding, application, and integration of subject material and extensive evidence of original thinking, skillful use of concepts, and ability to analyze and solve complex problems. Demonstrates diligent application of Learning Model principles, including initiative in serving other students.
+	\item represents considerable/significant understanding, application, and incorporation of the material which would prepare a student to be successful in next level courses, graduate school or employment. The student participates in the Learning Model as applied in the course. 
+	\item represents sufficient understanding of subject matter. The student demonstrates minimal initiative to be prepared for class. Sequenced courses could be attempted, but mastering new materials might prove challenging. The student participates only marginally in the Learning Model.
+	\item represents poor performance and initiative to learn and understand and apply course materials. Retaking a course or remediation may be necessary to prepare for additional instruction in this subject matter. 
+	\item represents failure in the course.
+\end{enumerate}
+
+\section{Harassment}
+	Title IX of the Education Amendments of 1972 prohibits sex discrimination against any participant in an education program or activity that receives federal funds, including Federal loans and grants. Title IX also covers student-to-student sexual harassment. If you encounter unlawful sexual harassment or gender based discrimination, please contact the Personnel Office at 496-1130.
+Disability
+	Brigham Young University-Idaho is committed to providing a working and learning atmosphere which reasonably accommodates qualified persons with disabilities. If you have any disability which may impair your ability to complete this course successfully, please contact the Services for Students with Disabilities Office, 496-1158. Reasonable academic accommodations are reviewed for all students who have qualified documented disabilities. Services are coordinated with the student and instructor by this office. If you need assistance or if you feel you have been unlawfully discriminated against on the basis of disability, you may seek resolution through established grievance policy and procedures. You should contact the Personnel Office at 496-1130.
+\section{Other}
+This document may be modified by the instructor at any time without notification.
+\section{Readings}
+These readings are to be completed \textit{prior to} each listed week's Tuesday class.
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+   \rowcolor[gray]{.9}
+	Week & From Text & Other \\
+	\hline
+	 1 & Chapter 1 and Appendix A & \href{run:./support_files/alg_intro.pdf}{About Algorithms}\\
+	\hline
+	 2 & Chapter 2 & \makecell{
+	\href{run:./support_files/aps.pdf}{Algorithmic Problem Solving}\\
+	\href{run:./support_files/alg_think.pdf}{Algorithmic Thinking}} 
+	\\
+	\hline
+	3 & Chapter 3 &\\
+	\hline
+	4 & Chapter 4 &\\
+	\hline
+	5 & Chapter 5 &\\
+	\hline
+	6 & Chapter 6 &\\
+	\hline
+	7 & Chapter 7 &\\
+	\hline
+	8 & Chapter 8 &\\
+	\hline
+	9 & Chapter 9 &\\
+	\hline
+	10 & Chapter 10 &\\
+	\hline
+	11 & Chapter 11 &\\
+	\hline
+	12 & Chapter 12 &\\
+	\hline
+	13 & None &\href{https://developer.apple.com/videos/play/wwdc2018/223/}{Why Algorithms?}\\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+\newpage
+\section{Portfolio}
+\subsection{Course Tracker}
+
+You are required to track your progress in the course using this table. 
+
+Note: Currently, you see full credit for week one's work. (\checkmark means yes. Blank means no.) Use what you see in the \LaTeX{} for week one to update the table for week 1 and all subsequent weeks each class day and week during the semester.
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+	\hline
+   \rowcolor[gray]{.9}
+   \multicolumn{9}{|c|}{\textbf{\large Course Tracker}}\\
+    \hline
+   \rowcolor[gray]{.9}
+   Week & \multicolumn{5}{|c|}{Tuesday}&\multicolumn{2}{|c|}{Thursday}&\multicolumn{1}{|c|}{Friday}\\
+    \hline
+    \rowcolor[gray]{.9}
+    & CRU & PFP & CDL & CAE & SAQ & PAQ & CDL & PPL\\
+    \hline
+    1& \checkmark & \checkmark & \checkmark& \checkmark& \checkmark& \checkmark& \checkmark& 100\%\\
+    \hline
+    2& & & & & & & & \\
+    \hline
+    3& & & & & & & & \\
+    \hline
+    4& & & & & & & & \\
+    \hline
+    5& & & & & & & & \\
+    \hline
+    6& & & & & & & & \\
+    \hline
+    7& & & & & & & & \\
+    \hline
+    8& & & & & & & & \\
+    \hline
+    9& & & & & & & & \\
+    \hline
+    10& & & & &  &  &  & \\
+    \hline
+    11& & & & & & & & \\
+    \hline
+    12& & & & & & & & \\
+    \hline
+    13& & & & & & & & \\
+    \hline
+   \end{tabular}
+\end{center}
+\label{tab:multicol}
+\end{table}
+
+This is an honest and true record of my work for this course.
+
+\begin{tabular}{@{}p{.5in}p{4in}@{}}
+Signature: & \hrulefill \\
+& Your Name Here
+\end{tabular}
+
+
+\subsubsection{Tracker Acronym Key} Course Tracker acronyms and their meanings.
+\begin{itemize}
+	\item \textbf{CRU} - I Completed the Reading and achieved a level of Understanding \textbf{before} the start of Tuesday's class and recorded questions about the items I didn't understand.
+	\item \textbf{PFP} - I was present for and attentive to the presentation for this date.
+	\item \textbf{CDL} - I fully participated in the Class Defined Learning for this date.
+	\item \textbf{CAE} - I fully participated in the Create And Explain portion of the class for this date.
+	\item \textbf{SAQ} - I submitted \textit{at least 1} appropriate, Significant, Actual Question I have regarding the information for this week.
+	\item \textbf{PAQ} - I was Present for and Attentive to the Answer Questions presentation for this date.
+	\item \textbf{PPL} - I, individually, correctly completed this Percentage of the Problems abd exercises showing  this Level of understanding before Friday at Midnight.
+\end{itemize}
+\subsection{Grade Claims} On the week indicated, bring this updated document to my office and make your claim.
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+   \rowcolor[gray]{.9}
+	Claim Week & Grade Claim & Instructor Grade & Adjusted Grade \\
+	\hline
+	 5 & & & \\
+	\hline
+	 9 & & & \\
+	\hline
+	13 - 14 & & &\\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\newpage
+
+
+\subsection{Evidences}
+%here is a template you can use.
+%% append your solutions for each week here.
+\subsubsection{Week 1}
+%add a subsubsection for each solution
+\begin{enumerate}
+\item Some Exercise or Problem Description.
+
+Solution
+\item Some Other Exercise or Problem Description.
+
+Solution requiring Code
+\lstset{language=Erlang}
+\lstinputlisting{support_files/gcd.erl}%file name and location
+
+ 
+\end{enumerate}
+
+\end{document}
