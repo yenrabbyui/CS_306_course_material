@@ -1,0 +1,131 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Week 03}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+
+\section{Preparation for Assignment}
+If, and \textit{only if} you can truthfully assert the truthfulness of each statement below are you ready to start the assignment.
+\subsection {Reading Comprehension Self-Check}
+\begin{itemize}
+\item  I know that \textit{decrease-and-conquer} is a general algorithm design technique based on exploiting a relationship between a solution to a given instance of a problem and a solution to a smaller instance of the same problem.
+\item  I can give a common example of each of the three major variations of the \textit{decrease-and-conquer} technique.
+\item  I know that \textit{insertion-sort}'s notable advantage is good performance on almost-sorted arrays.
+\item  I know that the \textit{topological sorting problem} for a directed graph has a solution if and only if the graph has no directed cycles.
+\item  I know that an application of topological sorting is resolving symbol dependencies in linkers.
+\item  I know that a \textit{dag} is a directed acyclic graph.
+\item  I know that the \textit{decrease-by-one} technique is a natural approach to developing algorithms for generating elementary combinatorial objects.
+\item  I know that \textit{binary search} is the most important and well-known example of a \textit{decrease-by-a-constant-factor} algorithm.
+\item  I know why the Euclidean GCD algorithm is an excellent example of a \textit{decrease-by-a-variable-size} algorithm.
+\item  I know how to order and have ordered the seven Big-$\mathcal{O}$ efficiency classes shown below from \textit{fastest growing} reference function (first) to \textit{slowest growing} reference function (last):
+    \begin{enumerate}
+    \item $\mathcal{O}(\log n)$
+    \item  $\mathcal{O}(n!)$
+    \item  $\mathcal{O}(n)$
+    \item  $\mathcal{O}(1)$
+    \item  $\mathcal{O}(2^n)$
+    \item  $\mathcal{O}(n \log n)$
+    \item  $\mathcal{O}(n^2)$
+   \end{enumerate}
+\item  I know given a $\mathcal{O}(n^3)$ algorithm whose running time for a problem of size 100,000 is 10 seconds what its running time would be for a problem of size 150,000.
+\item  I know given a $\mathcal{O}(1)$ algorithm whose running time for a problem of size 100,000 is 10 seconds what its running time would be for a problem of size 200,000.
+
+\end{itemize}
+\subsection{Memory Self-Check}
+
+\subsubsection{Algorithm Efficiency Calculation}
+
+
+\begin{enumerate}
+     \item Code and understand a \textit{reduce-by-variable-size} algorithm, without looking at pseudocode, that is an implementation of Euclid's GCD algorithm.
+     \item Write a non-bruite-force algorithm to generate all subsets of a set (A power set).
+     \item Write a non-bruite-force algorithm that solves the Josephus problem.
+\end{enumerate}.
+
+
+
+\section{Week 04 Exercises}
+\subsection{ Exercise 7 on page 137} 
+\subsection{Exercise 1 on page 142} 
+\subsection{Exercise 2 on page 148} 
+\subsection{Exercise 1 on page 156}
+\subsection{ Exercise 1 on page 166} 
+\subsection{Exercise 12 on page 167} 
+
+
+\section{Week 04 Problems}
+\subsection{Exercise 6 on page 137} 
+\subsection{Exercise 10 on page 143} Make sure you write out all the mathematical steps to get the result.
+\subsection{Exercise 12 on page 149}
+\subsection{Exercise 8 on page 156}
+
+
+\end{document}
