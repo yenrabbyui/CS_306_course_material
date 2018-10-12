@@ -1,0 +1,119 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{hyperref}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{Erlang}{
+  keywords={main, gcd },
+  ndkeywords={rem, export, module},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{The Master Theorem}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document} For the general divide-and-conquer recurrence relation T(n), the \textit{Master Theorem} makes it straightforward to determine divide-and-conquer (and
+  even some decrease-and-conquer) algorithms\textquoteright efficiency classes. Bear in mind what it does \textbf{not} do. It does \textbf{NOT} give you an \textit{explicit solution} (a function in terms of $n$ only) to the $T(n)$ recurrence relation.
+
+  The theorem states that for $T(n) = aT(n/b) + f(n)$, where $f(n)$ computes the
+  cost of dividing the problem into smaller ones and of combining their
+  solutions:
+
+  If
+  
+\begin{tabular}{|c|c|c|}
+\hline
+$T(1)$ & = & $c$,\\
+\hline
+$a$ & > & 0,\\
+\hline
+$b$ & > & 1,\\
+\hline
+$c$ & > & 0,\\
+\hline
+$n$ & = & $b^k, k = 0, 1, 2, \dots (n \text{ is a power of } b)$,\\
+\hline
+$d$ & $\ge$ & 0, and\\
+\hline
+$f(n)$ & $\in$ & $\Theta(n^d)$,\\
+\hline
+\end{tabular}
+
+  then
+
+  $a < b^d \rightarrow T(n) \in \Theta(n^d)$;
+
+  $a = b^d \rightarrow T(n) \in \Theta(n^d \log n)$;
+
+  $a > b^d \rightarrow T(n) \in \Theta(n^{\log a})$;
+
+  where the logs are $\log_b$, log to the base b.
+  \end{document}
