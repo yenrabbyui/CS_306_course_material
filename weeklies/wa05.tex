@@ -1,0 +1,149 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Week 05}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+
+\section{Preparation for Assignment}
+If, and \textit{only if} you can truthfully assert the truthfulness of each statement below are you ready to start the exercises.
+\subsection {Reading Comprehension Self-Check}
+\begin{itemize}
+\item  I know why it is \textbf{false} to say that \textit{divide-and-conquer} is a general algorithm design technique that starts solving a problem's instance by dividing it into several smaller instances, ideally of unequal size.
+  \item  I know that the \href{run:../support_files/master_theorem.pdf}{Master Theorem} establishes the order of growth of the solutions to the general recurrence $T(n) = aT(n/b) + f(n)$ that the running time of many divide-and-conquer algorithms satisfies.
+  \item  In addition, I know why it is \textbf{false} to say that the Master Theorem
+    gives \textbf{explicit} solutions to this general recurrence.
+  \item  I know that \textit{mergesort} and \textit{quicksort} are two divide-and-conquer sorting algorithms both of whose best-case time efficiency is \say{linear logarithmic}.
+  \item  I know that \textit{decrease-and-conquer} might be considered a degenerate case of \textit{divide-and-conquer}, but it is better to consider them as two different design paradigms.
+  \item  I know how to fill in the table below, that is, I can compare (by
+    matching the correct phrase with an X in the correct table cell, only one X
+    per each row and per each column) the orders of growth of two functions g(n) and f(n) when the ratio of g(n) to f(n), (i.e., g(n)/f(n), in the limit as n
+    goes to infinity), approaches zero, or else some positive constant, or else
+    infinity.
+    
+    $GR(a(n))$ is a function that returns the Growth Rate of a function. 
+    
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    $\lim_{x\to\infty} \frac{f(x)}{g(x)}$ & $GR(g(n))=GR(f(n))$&$GR(g(n)) >GR(f(n))$&$GR(g(n)) <GR(f(n))$\\
+    \hline
+    $0$&&&\\
+    \hline
+    $k\in\mathbb{N}, k\not=0$&&&\\
+    \hline
+    $\infty$&&&\\
+    \hline
+    \end{tabular}
+
+\end{itemize}
+\subsection{Memory Self-Check}
+
+\subsubsection{Applying the Master Theorem}
+
+
+By filling in the table (the first row is done for you), show that you know
+  how to use the Master Theorem, page 197 and \href{run:../support_files/master_theorem.pdf}{Master Theorem}, to find the $\Theta$ order of growth for solutions of the following recurrence relations (where in every case, $T(1) = 1$):
+  \\
+\begin{tabular}{|c|l|c|c|c|c|c|}
+\hline
+    &$T(n) =$           & $a$ & $b$ & $d$ & $a$ <, =, or > $b^d$ & $\Theta$ \\
+\hline
+1. & $2T(n/2)+n-1$ & $2$ & $2$ & $1$ & $=$ & $n\log_2 n$ \\
+\hline
+2. & $2T(n/2)+2n+1$ &  &  & & &  \\
+\hline
+3. & $2T(n/2)+1$ &  &  & & &  \\
+\hline
+4. & $3T(n/3)+n^2+2n+1$ &  &  & & &  \\
+\hline
+5. & $4T(n/2)+n$ &  &  & & &  \\
+\hline
+6. & $4T(n/2)+n^2$ &  &  & & &  \\
+\hline
+7. & $4T(n/2)+n^3$ &  &  & & &  \\
+\hline
+\end{tabular}
+ \section{Week 04 Exercises}
+\subsection{ Exercise 1 on page 200} 
+\subsection{Exercise 1 on page 207} 
+\subsection{Exercise 5 on page 211} 
+\subsection{Exercise 6 on page 212} 
+\subsection{Exercise 2 on page 217}
+\subsection{ Exercise 1 on page 223} 
+
+
+\section{Week 04 Problems}
+\subsection{Exercise 11 on page 201} 
+\subsection{Exercise 9 on page 212} Make sure you write out the full mathematical proof.
+\subsection{Exercise 11 on page 212}
+\subsection{Exercise 12 on page 224}
+
+
+\end{document}
