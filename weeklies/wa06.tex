@@ -1,0 +1,137 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Week 06}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+
+\section{Preparation for Assignment}
+If, and \textit{only if} you can truthfully assert the truthfulness of each statement below are you ready to start the exercises.
+\subsection {Reading Comprehension Self-Check}
+\begin{itemize}
+  \item I know why it is \textbf{false} to say that \textit{transform-and-conquer} is a group of general problem-solving techniques based on the idea of transformation to a problem that is harder to solve.
+  \item We know why it is \textbf{false} to say that there are two principal variations of the transform-and-conquer strategy: \textit{instance simplification} and
+    \textit{representation change}.
+  \item I know that list presorting and Gaussian elimination are examples of instance simplification.
+  \item I know that heaps are most important for the efficient implementation of \textit{priority queues}.
+  \item I know in what sense Horner's rule for polynomial evaluation has useful by-products.
+  \item I know why it is \textbf{not quite true} to say that the \textit{fast Fourier transform (FFT)} algorithm is one of the most important algorithmic discoveries of all time.
+  \item I know in what sense Professor X solved his problem by \textit{reduction}. ;)
+
+\end{itemize}
+\subsection{Memory Self-Check}
+
+\subsubsection{Applying Representation Change}
+
+\href{https://www.lds.org/scriptures/bofm/ether/12.4}{Ether 12:27 \& 28} teaches us much about Christ, faith, humility, and our weaknesses. It states that Christ makes our weakness into strengths, not us. How might  understanding this scripture and The Lord\textquoteright s admonition \href{https://www.lds.org/scriptures/nt/luke/21.18-19?lang=eng&clang=eng#p17}{\say{In your patience possess ye your souls}} change your view of who you are, your relationship with Christ, and how you treat yourself when you succumb to weakness? (FYI, it does not justify the \say{eat, drink, and be merry} approach to life.)
+
+
+ \section{Week 04 Exercises}
+\subsection{ Exercise 2 on page 205} 
+\subsection{ Exercise 1 on page 216} 
+\subsection{Exercise 2 on page 225} 
+\subsection{Exercise 1 on page 233} 
+\subsection{Exercise 5 on page 239} 
+\subsection{Exercise 1 on page 248}
+
+
+\section{Week 06 Problems}
+
+Here is a straightforward implementation of a min-max algorithm in a familiar
+  language:
+
+\lstset{language=C++}
+\lstinputlisting{../support_files/s_min_max.cpp}%file name and location
+
+  What is its efficiency?
+
+  The divide-and-conquer recurrence relation for the number of
+  comparisons in the min-max algorithm (shown below in elisp) is:
+
+  $T(n) = 2T(n/2) + 2, T(2) = 1$.
+
+  Solve this recurrence relation using telescoping (like Bro. Neff did) or backward substitution (like Bro. Barney did). Then answer this question:
+
+  Do each of the following two implementations work the same? Compare, through evidence, if any have a slightly-more-efficient-than-straightforward efficiency.
+
+
+\lstset{language=C++}
+\lstinputlisting{../support_files/r_min_max.cpp}%file name and location
+
+
+\lstset{language=Swift}
+\lstinputlisting{../support_files/r_min_max.el}%file name and location
+  
+\subsection{Exercise 1 on page 205} 
+\subsection{Exercise 3 on page 216}
+\subsection{Exercise 9 on page 249}
+
+
+\end{document}
