@@ -1,0 +1,28 @@
+#+BEGIN_SRC emacs-lisp
+  (require 'cl)
+
+  (setq Values [0 12 10 20 15] Weights [0 2 1 3 2] F (make-vector 5 nil))
+
+  (loop for i from 0 to 4
+        do (setf (aref F i) (make-vector 6 0)))
+
+  (loop for i from 1 to 4
+        do (loop for j from 1 to 5
+           do (setf (aref (aref F i) j) -1)))
+
+  (defun MFKnapsack (i j)
+    (let ((value 0))
+      (if (< (aref (aref F i) j) 0)
+          (progn
+            (setq value
+                  (if (< j (aref Weights i))
+                      (MFKnapsack (1- i) j)
+                    (max (MFKnapsack (1- i) j)
+                         (+ (aref Values i) (MFKnapsack (1- i) (- j (aref Weights i)))))))
+            (setf (aref (aref F i) j) value)))
+      (aref (aref F i) j)))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (MFKnapsack 4 5)
+#+END_SRC

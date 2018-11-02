@@ -1,0 +1,131 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Week 08}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+
+\section{Preparation for Assignment}
+If, and \textit{only if} you can truthfully assert the truthfulness of each statement below are you ready to start the exercises.
+\subsection {Reading Comprehension Self-Check}
+\begin{itemize}
+\item I know why it is \textbf{false} to say that \textbf{dynamic programming} is better than static programming (such as is taught in CS124 (or equivalent)).
+ \item I know why it is \textbf{false} to say that applicability of dynamic programming to an optimization problem requires the problem to satisfy the \textit{principle of suboptimality}: a suboptimal solution to any of its instances must be made up of suboptimal solutions to its subinstances.
+ \item I know how to discover that one of the earliest applications of dynamic programming is an algorithm that solves the traveling salesman problem in time $\mathcal{O}(n^2 2^n)$.
+ \item I know why it is \textbf{false} to say that solving a \textbf{continuous} knapsack problem by a dynamic programming algorithm exemplifies an application of this technique to difficult problems of combinatorial optimization.
+ \item I know how \textit{memory functions} such as this Fibonacci C++ code constitute a space-grabbing but time-saving technique.
+ \lstinputlisting[language=C]{../support_files/fib.c}%file name and location
+ \item I know how \textit{memory functions} such as this Elisp Knapsack code constitute a space-grabbing but time-saving technique.
+ \lstinputlisting{../support_files/knapsack.elsp}%file name and location
+ 
+\item I know how many \textit{distinct} binary search trees can be constructed for a set of 4 orderable keys: A, B, C and D.
+\item I know how to draw all optimal BSTs for a set of 4 orderable keys.
+\item I know how to label each tree I drew with its unique level-order
+    traversal (like ABCD).
+\item I know how to draw the optimal BST given 0.1, 0.2, 0.3, and 0.4 as the probabilities of the four keys A, B, C, and D.
+\item I know how to compute the average search cost for an optimal BST.
+\end{itemize}
+\subsection{Memory Self-Check}
+Compare and contrast \textbf{dynamic programming} and \textbf{divide and conquer} by putting an X in a table cell if the property is true:
+ 
+ \begin{tabular}{|l|c|c|}
+ \hline
+ Property&Dynamic Programming& Divide and Conquer\\
+ \hline
+ Works bottom up&&\\
+ \hline
+ Works top down&&\\
+ \hline
+ Divides problems into subproblems&&\\
+ \hline
+ Subproblems may be overlapping&&\\
+ \hline
+ \end{tabular}
+(\textit{Bottom up} means starting at smallest or simplest subproblem, \textit{then} combining subproblem solutions of increasing size until the solution of the original problem is reached.)
+
+
+ \section{Week 08 Exercises}
+\subsection{ Exercise 4 on page 290} 
+\subsection{ Exercise 1 on page 296} 
+\subsection{Exercise 2 on page 303} 
+\subsection{Exercise 5 on page 303} 
+\subsection{Exercise 2 on page 311}
+
+
+\section{Week 08 Problems}
+\subsection{Not in the Book}
+In a language of your choice, implement the search elements of an optimal binary search tree for a set of \textit{n} keys. Test the time efficiency of your code for the following cases:
+\begin{enumerate}[(a)]
+\item Search for the largest element.
+\item Search for the smallest element.
+\item Search for an element not present in the tree.
+\end{enumerate}
+
+\end{document}
