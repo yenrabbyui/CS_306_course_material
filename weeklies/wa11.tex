@@ -1,0 +1,112 @@
+
+\documentclass[12pt]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsaddr}
+\usepackage{dirtytalk}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{stringcolor}{rgb}{0.7,0.23,0.36}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{keycolor}{rgb}{0.007,0.01,1.0}
+\definecolor{itemcolor}{rgb}{0.01,0.0,0.49}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+}
+ 
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{keycolor},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Swift}{
+  keywords={associatedtype, class, deinit, enum, extension, func, import, init, inout, internal, let, operator, private, protocol, public, static, struct, subscript, typealias, var, break, case, continue, default, defer, do, else, fallthrough, for, guard, if, in, repeat, return, switch, where, while, as, catch, dynamicType, false, is, nil, rethrows, super, self, Self, throw, throws, true, try, associativity, convenience, dynamic, didSet, final, get, infix, indirect, lazy, left, mutating, none, nonmutating, optional, override, postfix, precedence, prefix, Protocol, required, right, set, Type, unowned, weak, willSet},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{emph={Int,count,abs,repeating,Array}, emphstyle=\color{itemcolor}}
+
+
+\title{Week 11}
+
+\date{\today}
+
+\lstset{style=mystyle}
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\maketitle
+
+\section{Preparation for Assignment}
+If, and \textit{only if} you can truthfully assert the truthfulness of each statement below are you ready to start the exercises.
+\subsection {Reading Comprehension Self-Check}
+\begin{itemize}
+\item  I know in what sense the power of algorithms is limited.
+\item  I know that lower bounds $\Omega$ to many problems are known, i.e., no
+    algorithm can undercut them.
+\item  I can give at least two examples of problems with known lower bounds.
+\item  I know that some problems cannot be fully solved.
+\item  I know that there are problems for which algorithms are \textbf{not known} to
+    exist.
+\item  I know that there are problems for which algorithms are \textbf{known not} to
+    exist.
+\item  I know that many problems are considered intractable, which means
+    infeasible to solve with current technology.
+\item  I know that numerical algorithms face the limiting effects of
+    truncation, roundoff, overflow, underflow and cancellation.
+
+\end{itemize}
+\subsection{Memory Self-Check}
+I can, and have, explained to someone who is not a student in the Computer Science and Electrical Engineering or Computer Information Technology departments the difference between problems that are \textit{P} and \textit{NP} so that these persons actually understand the difference. 
+ \section{Week 11 Exercises}
+\subsection{ Exercise 3 on page 393}
+\subsection{Exercise 2 on page 399} 
+\subsection{Exercise 6 on page 410} 
+
+
+\section{Week 11 Problems}
+\subsection{Exercise 10 on page 400}
+\subsection{Exercise 12 on page 411}
+
+
+
+  
+
+
+\end{document}
